@@ -1,0 +1,185 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body{
+    background-color: aqua;
+}
+#gcontainer{
+    width: 100vw;
+    
+    margin:1rem;
+
+    display: flex;
+    justify-content: center;
+}
+#container1{
+background-color: rgb(243, 155, 171);       
+ width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+input{
+    position: absolute;
+    bottom:10px;
+    right:10px;
+}
+.box{
+    width:10%;
+    height: 5vw ;
+    border:1rem solid rgba(255, 255, 255, 0.5); 
+}
+#box1{
+    background-color: rgb(230, 25, 25);
+    margin-top:2vw;
+    animation: box1 1s ease-in forwards; 
+}
+#box2{
+    background-color: rgb(198, 47, 193);
+    animation: box2 1s ease-in forwards; 
+}
+#box3{
+    background-color: rgb(15, 51, 230);
+    animation: box3 1s ease-in forwards;   
+}
+#box4{
+    background-color: rgb(16, 224   ,19);
+    animation: box4 1s ease-in forwards;
+}
+#box5{
+    background-color: rgb(200, 224, 16);
+    animation: box5 1s ease-in forwards;
+    margin-bottom: 2vw;
+}
+
+            /* HOVER IN LEFT CONTAINER */
+
+#container1:has(#box1:hover) .box:not(#box1),
+#container1:has(#box2:hover) .box:not(#box2),
+#container1:has(#box3:hover) .box:not(#box3),
+#container1:has(#box4:hover) .box:not(#box4),
+#container1:has(#box5:hover) .box:not(#box5){
+    background-color: black;
+}
+#container2{
+background-color: brown;    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.bbox{
+width:10%;
+height:5vw;
+border:1rem solid rgba(255, 255, 255, 0.5); 
+}
+#bbox1{
+background-color: rgb(230, 25, 25);
+margin-top:2vw;
+animation: box1 1s ease-in forwards; 
+}
+#bbox2{
+background-color: rgb(198, 47, 193);
+animation: box2 1s ease-in forwards; 
+}
+#bbox3{
+background-color: rgb(15, 51, 230);
+animation: box3 1s ease-in forwards;   
+}
+#bbox4{
+background-color: rgb(16, 224   ,19);
+animation: box4 1s ease-in forwards;
+}
+#bbox5{
+background-color: rgb(200, 224, 16);
+animation: box5 1s ease-in forwards;
+margin-bottom: 2vw;
+}
+
+                /*HOVERING ELEMENT IN FIRST
+                 CONTAINER EFFECTS THE ELEMENTS
+                  IN SECOND CONTAINER */
+
+#container1:has(#box5:hover) ~ #container2 #bbox1,
+#container1:has(#box4:hover) ~ #container2 #bbox2,
+#container1:has(#box3:hover) ~ #container2 #bbox3,
+#container1:has(#box2:hover) ~ #container2 #bbox4,
+#container1:has(#box1:hover) ~ #container2 #bbox5{
+    background-color: black;
+}
+
+                /* HOVER IN LEFT CONTAINER */
+
+#container2:has(#bbox1:hover) .bbox:not(#bbox1),
+#container2:has(#bbox2:hover) .bbox:not(#bbox2),
+#container2:has(#bbox3:hover) .bbox:not(#bbox3),
+#container2:has(#bbox4:hover) .bbox:not(#bbox4),
+#container2:has(#bbox5:hover) .bbox:not(#bbox5){
+    background-color: black;
+}
+
+                /*HOVERING ELEMENT IN SECOND
+                 CONTAINER EFFECTS THE ELEMENTS
+                  IN FIRST CONTAINER */
+
+#gcontainer:has(#bbox5:hover) #box1,
+#gcontainer:has(#bbox4:hover) #box2,
+#gcontainer:has(#bbox3:hover) #box3,
+#gcontainer:has(#bbox2:hover) #box4,
+#gcontainer:has(#bbox1:hover) #box5{
+    background-color: black;
+}
+                /*DIFFERENT HOVER TRIES */
+
+/*
+#container1:hover + #container2 #bbox1,
+#container1:hover + #container2 #bbox3,
+#container1:hover + #container2 #bbox5{
+    background-color: black;
+}
+*/
+#container1:hover + #container2{
+    background-color: black;
+}
+#gcontainer:has(#container2:hover) #container1{
+    background-color: black;
+}
+#gcontainer:has(#box3:hover) #container1{
+    background-color: black;
+}
+
+               /* - o - o - o - o - o - o - o - o - o - o - */
+
+#cont3{
+    width:200px;
+    height:200px;
+    border:2px solid black;
+    background-color: red;
+    margin:10px;
+}
+#cont4{
+    width:50px;
+    height: 50px;border:2px solid black;
+    background-color: yellow;
+    position: absolute;
+    top:650px;
+    left:50px;
+}
+
+#cont3:hover{
+    color:red;
+    background-color: yellow;
+}
+#cont3:hover + #cont4{
+    opacity: 0.5;
+    background-color: red;
+    color:yellow;
+}
+#cont4:hover{
+    color:red;
+    background-color: yellow;
+}
+body:has(#cont4:hover) #cont3 {
+    opacity: 0.5;
+}
